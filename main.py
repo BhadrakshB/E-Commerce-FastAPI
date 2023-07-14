@@ -4,9 +4,9 @@ from fastapi import  FastAPI, WebSocket
 from fastapi.testclient import TestClient
 from fastapi.responses import HTMLResponse
 import uvicorn
-from blog_api import models, database
-from blog_api.routers import product_router, user_router, cart_router, order_router,category_router, filter_router,zoho_router
-from blog_api.chat_system.endpoints import chat
+from e_commerce_api import models, database
+from e_commerce_api.routers import product_router, user_router, cart_router, order_router,category_router, filter_router,zoho_router
+from e_commerce_api.chat_system.endpoints import chat
 
 app = FastAPI()
 
@@ -14,7 +14,7 @@ models.Base.metadata.create_all(bind=database.engine)
 
 app.include_router(router = chat)
 
-app.include_router(router=zoho_router.zoho)
+# app.include_router(router=zoho_router.zoho)
 
 app.include_router(router=product_router.router_product)
 app.include_router(router=user_router.router_user)
