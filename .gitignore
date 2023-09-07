@@ -9,3 +9,4 @@ e_commerce_api/schemas/zoho_contacts_schema.py
 e_commerce_api/schemas/zoho_contact_persons_schema.py
 secret_key.py
 myenv/
+.space

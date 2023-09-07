@@ -1,0 +1,8 @@
+v: 0
+micros:
+  - name: E-Commerce
+    src: .
+    engine: python3.9
+    run: uvicorn main:app
+    public_routes:
+      - "/*"

@@ -17,7 +17,7 @@ class ProductRequest(BaseModel):
 class UserResponse(BaseModel):
     id: int
     email: str
-    username: Optional[str]
+    username: Optional[str] = None
     created_at: datetime 
     
     class Config:

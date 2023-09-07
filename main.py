@@ -5,7 +5,7 @@ from fastapi.testclient import TestClient
 from fastapi.responses import HTMLResponse
 import uvicorn
 from e_commerce_api import models, database
-from e_commerce_api.routers import product_router, user_router, cart_router, order_router,category_router, filter_router,zoho_router
+from e_commerce_api.routers import product_router, user_router, cart_router, order_router,category_router, filter_router
 from e_commerce_api.chat_system.endpoints import chat
 
 app = FastAPI()
@@ -13,8 +13,6 @@ app = FastAPI()
 models.Base.metadata.create_all(bind=database.engine)
 
 app.include_router(router = chat)
-
-# app.include_router(router=zoho_router.zoho)
 
 app.include_router(router=product_router.router_product)
 app.include_router(router=user_router.router_user)
@@ -28,7 +26,9 @@ app.include_router(router = filter_router.router_search_filter)
 def create_mock_data():
     
     db = database.SessionLocal()
+    
     values = ['fruits', 'vegetables', 'dairy', 'meat', 'seafood', 'beverages', 'snacks', 'canned', 'frozen', 'baking', 'household', 'personal care', 'other']
+    
     for i in values: # type: ignore
         category_i = models.Categories(category=i)
         db.add(category_i)
@@ -80,19 +80,10 @@ def add_auth_details():
 
     db.commit()
 
-add_auth_details()
+# add_auth_details()
 
 @app.get('/')
 def starting():
     return {'detail': 'Welcome to THE CROPCHAIN Project'}
-
-        
-def test_websocket():
-    client = TestClient(app)
-    with client.websocket_connect("/ws") as websocket:
-        data = websocket.receive_json()
-        print(data)
-        
-# test_websocket()
 
     

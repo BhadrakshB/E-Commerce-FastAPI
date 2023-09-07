@@ -5,7 +5,7 @@ from pydantic import BaseModel
 class AddProductRequest(BaseModel):
     cart_id : int
     product_id : int
-    quantity : Optional[int]
+    quantity : Optional[int] = None
 
 class CartProductRequest(BaseModel):
     product_id: int

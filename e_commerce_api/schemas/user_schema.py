@@ -8,12 +8,12 @@ class Token(BaseModel):
     token_type: str
     
 class TokenData(BaseModel):
-    username: str | None = None
+    username: Optional[str] = None
 
 
 class UserRegister(BaseModel):
-    is_seller: Optional[bool]
-    username: Optional[str]
+    is_seller: Optional[bool] = None
+    username: Optional[str] = None
     email: str
     password: str
     
@@ -21,7 +21,7 @@ class UserRegister(BaseModel):
         orm_mode = True
         
 class UserLogin(BaseModel):
-    username: Optional[str]
+    username: Optional[str] = None
     password: str
     email: str
     
@@ -29,8 +29,8 @@ class UserLogin(BaseModel):
         orm_mode = True
     
 class UserUpdate(BaseModel):
-    email: Optional[str]
-    username: Optional[str]
+    email: Optional[str] = None
+    username: Optional[str] = None
     
     
     class Config:
@@ -57,7 +57,7 @@ class OrderProducts(BaseModel):
 class UserResponse(BaseModel):
     id: int
     email: str
-    username: Optional[str]
+    username: Optional[str] = None
     is_seller: bool
     created_at: datetime
     
