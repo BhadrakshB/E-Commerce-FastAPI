@@ -12,13 +12,6 @@ from sqlalchemy.orm import relationship
 
 from .database import Base
 
-class ZohoAuth(Base):
-    __tablename__ = 'zoho_auth'
-    id = Column(Integer, primary_key=True, index=True, autoincrement=True, nullable=False)
-    access_token = Column(String, nullable=False)
-    refresh_token = Column(String, nullable=False)
-    expires_at = Column(TIMESTAMP(timezone=True), nullable=False)
-
 
 class Categories(Base):
     __tablename__ = 'categories'

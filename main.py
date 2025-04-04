@@ -67,7 +67,7 @@ def create_mock_data():
     print('stored to db')
     pass
 
-# create_mock_data() 
+create_mock_data() 
 
 def add_auth_details():
     access_token = '1000.8282f77a2a53f739f5171522f0eb087a.0ed4351b3f2470f0cf373fc0456a1758'
